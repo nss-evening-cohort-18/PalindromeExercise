@@ -3,7 +3,7 @@ namespace PalindromeExercise.Tests;
 public class PalindromeDetectorTests
 {
     [Fact]
-    public void StringIsPalindrome_Returns_True_When_Given_Palindrome()
+    public void StringIsPalindrome_ReturnsTrue_WhenGivenPalindrome()
     {
         //Arrange
         string inputString = "tacocat";
@@ -18,9 +18,9 @@ public class PalindromeDetectorTests
     }
 
     [Fact]
-    public void StringIsPalindrome_Returns_False_When_Given_Non_Palindrome()
+    public void StringIsPalindrome_ReturnsFalse_WhenGivenNonPalindrome()
     {
-        string input = "I am not a palindrome.";
+        string input = "abcde";
         bool expectedResult = false;
 
         bool actualResult = PalindromeDetector.StringIsPalindrome(input);
@@ -28,23 +28,22 @@ public class PalindromeDetectorTests
         Assert.Equal(expectedResult, actualResult);
     }
 
-    [Fact]
-    public void StringIsPalindrome_Detects_Palindrome_With_Spaces()
-    {
-        string input = "taco cat";
-        bool expectedResult = true;
 
+    [InlineData("taco cat", true)]
+    [InlineData("abc de", false)]
+    [Theory]
+    public void StringIsPalindrome_HandlesSpaces(string input, bool expectedResult)
+    {
         bool actualResult = PalindromeDetector.StringIsPalindrome(input);
 
         Assert.Equal(expectedResult, actualResult);
     }
 
-    [Fact]
-    public void StringIsPalindrome_Handles_Punctuation()
+    [InlineData("ta.co'C9aT", true)]
+    [InlineData("ab.c'd9e", false)]
+    [Theory]
+    public void StringIsPalindrome_HandlesPunctuation(string input, bool expectedResult)
     {
-        string input = "ta.co'C9aT";
-        bool expectedResult = true;
-
         bool actualResult = PalindromeDetector.StringIsPalindrome(input);
 
         Assert.Equal(expectedResult, actualResult);
