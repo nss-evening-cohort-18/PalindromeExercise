@@ -18,6 +18,11 @@ public class PalindromeDetector
 
     private static string ReverseString(string input)
     {
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine(i.ToString());
+        }
+
         return new string(input.Reverse().ToArray());
     }
 }

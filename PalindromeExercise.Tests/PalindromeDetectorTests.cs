@@ -54,7 +54,7 @@ public class PalindromeDetectorTests
     [InlineData("I am not a palindrome.", false)]
     [InlineData("t.A1!2@3#4$5%6^7&8*9(0)-_=+;:',<.>/?\"\\|c;OCaT", true)]
     [Theory]
-    public void StringIsPalindrome_Passes_Actual_Palindromes(string input, bool expectedResult)
+    public void StringIsPalindrome_Passes_ActualPalindromes(string input, bool expectedResult)
     {
         var actualResult = PalindromeDetector.StringIsPalindrome(input);
 
