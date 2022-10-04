@@ -6,24 +6,23 @@ public class PalindromeDetectorTests
     public void StringIsPalindrome_ReturnsTrue_WhenGivenPalindrome()
     {
         //Arrange
-        string inputString = "tacocat";
-        bool expectedResult = true;
+        var inputString = "tacocat";
+        var expectedResult = true;
 
         //Act
-        bool actualResult = PalindromeDetector.StringIsPalindrome(inputString);
+        var actualResult = PalindromeDetector.StringIsPalindrome(inputString);
 
         //Assert
         Assert.Equal(expectedResult, actualResult);
-        
     }
 
     [Fact]
     public void StringIsPalindrome_ReturnsFalse_WhenGivenNonPalindrome()
     {
-        string input = "abcde";
-        bool expectedResult = false;
+        var input = "abcde";
+        var expectedResult = false;
 
-        bool actualResult = PalindromeDetector.StringIsPalindrome(input);
+        var actualResult = PalindromeDetector.StringIsPalindrome(input);
 
         Assert.Equal(expectedResult, actualResult);
     }
@@ -34,7 +33,7 @@ public class PalindromeDetectorTests
     [Theory]
     public void StringIsPalindrome_HandlesSpaces(string input, bool expectedResult)
     {
-        bool actualResult = PalindromeDetector.StringIsPalindrome(input);
+        var actualResult = PalindromeDetector.StringIsPalindrome(input);
 
         Assert.Equal(expectedResult, actualResult);
     }
@@ -44,7 +43,7 @@ public class PalindromeDetectorTests
     [Theory]
     public void StringIsPalindrome_HandlesPunctuation(string input, bool expectedResult)
     {
-        bool actualResult = PalindromeDetector.StringIsPalindrome(input);
+        var actualResult = PalindromeDetector.StringIsPalindrome(input);
 
         Assert.Equal(expectedResult, actualResult);
     }
@@ -57,10 +56,8 @@ public class PalindromeDetectorTests
     [Theory]
     public void StringIsPalindrome_Passes_Actual_Palindromes(string input, bool expectedResult)
     {
-        bool actualResult = PalindromeDetector.StringIsPalindrome(input);
-     
+        var actualResult = PalindromeDetector.StringIsPalindrome(input);
+
         Assert.Equal(actualResult, expectedResult);
     }
-
-
 }
