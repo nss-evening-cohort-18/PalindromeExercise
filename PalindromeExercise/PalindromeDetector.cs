@@ -8,16 +8,23 @@ namespace PalindromeExercise
 {
     public class PalindromeDetector
     {
-        public bool StringIsPalindrome(string input)
+        public static bool StringIsPalindrome(string input)
         {
-            bool result = false;
-
-            string inputLettersOnly = String.Join("", input.Where( c => char.IsLetter(c)));
+            string inputLettersOnly = RemoveNonLettersFromString(input);
             string lowerCaseLettersOnly = inputLettersOnly.ToLower();
-            string reversedLowerCase = string.Join("", inputLettersOnly.ToLower().Reverse());
-            result = lowerCaseLettersOnly == reversedLowerCase;
+            string reversedLowerCaseLettersOnly = ReverseString(inputLettersOnly).ToLower();
+            
+            return lowerCaseLettersOnly == reversedLowerCaseLettersOnly;
+        }
 
-            return result;  
+        private static string RemoveNonLettersFromString(string input)
+        {
+            return new string(input.Where(c => char.IsLetter(c)).ToArray());
+        }
+
+        private static string ReverseString(string input)
+        {
+            return new string(input.Reverse().ToArray());
         }
     }
 }
